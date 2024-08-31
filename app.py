@@ -19,12 +19,16 @@ def load_pdf(pdf_path):
 def load_model():
     tokenizer = AutoTokenizer.from_pretrained("himmeow/vi-gemma-2b-RAG")
     model = AutoModelForCausalLM.from_pretrained(
-        "himmeow/vi-gemma-2b-RAG",
-        device_map="auto",
-        torch_dtype=torch.bfloat16
-    )
-    if torch.cuda.is_available():
-        model.to("cuda")
+    "himmeow/vi-gemma-2b-RAG",
+    device_map="auto",
+    torch_dtype=torch.bfloat16
+)
+
+# Check if the model is in the meta state
+if model.device.type == 'meta':
+    # You may want to fully instantiate the model here before moving it
+    model = model.from_pretrained("himmeow/vi-gemma-2b-RAG")
+
     return tokenizer, model
 
 # Generate a response based on the user query
