@@ -15,13 +15,13 @@ def load_pdf(pdf_path):
     return pdf_Text
 
 # Load the pre-trained model and tokenizer
-@st.cache_resource
+# Remove or comment out the @st.cache_resource decorator
 def load_model():
     tokenizer = AutoTokenizer.from_pretrained("himmeow/vi-gemma-2b-RAG")
     model = AutoModelForCausalLM.from_pretrained(
         "himmeow/vi-gemma-2b-RAG",
         device_map="auto",
-        torch_dtype=torch.fp16
+        torch_dtype=torch.bfloat16
     )
     if torch.cuda.is_available():
         model.to("cuda")
