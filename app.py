@@ -21,7 +21,7 @@ def load_model():
     model = AutoModelForCausalLM.from_pretrained(
         "himmeow/vi-gemma-2b-RAG",
         device_map="auto",
-        torch_dtype=torch.float32
+        torch_dtype=torch.fp16
     )
     if torch.cuda.is_available():
         model.to("cuda")
