@@ -24,10 +24,10 @@ def load_model():
     torch_dtype=torch.bfloat16
 )
 
-# Check if the model is in the meta state
-if model.device.type == 'meta':
-    # You may want to fully instantiate the model here before moving it
-    model = model.from_pretrained("himmeow/vi-gemma-2b-RAG")
+    # Check if the model is in the meta state
+    if model.device.type == 'meta':
+        # You may want to fully instantiate the model here before moving it
+        model = model.from_pretrained("himmeow/vi-gemma-2b-RAG")
 
     return tokenizer, model
 
