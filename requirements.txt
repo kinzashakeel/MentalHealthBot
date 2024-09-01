@@ -131,3 +131,4 @@ yarg==0.1.9
 langchain
 sentence-transformers
 langchain_community
+sentencepiece
