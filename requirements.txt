@@ -125,3 +125,4 @@ yarg
 langchain_community
 langchain
 openai
+PyPDF2
