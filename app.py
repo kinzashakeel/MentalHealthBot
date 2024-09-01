@@ -8,9 +8,6 @@ import pandas as pd
 import PyPDF2
 import os
 from sentence_transformers import SentenceTransformer
-from reportlab.lib.pagesizes import letter
-from reportlab.pdfgen import canvas
-from reportlab.lib.units import inch
 
 load_dotenv() 
 
