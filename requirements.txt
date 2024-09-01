@@ -129,3 +129,4 @@ openai
 sentence_transformers
 PyPDF2
 pysqlite3-binary
+sqlite3
