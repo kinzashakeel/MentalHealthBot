@@ -4,7 +4,6 @@ from langchain.embeddings import OpenAIEmbeddings
 from langchain.chains import RetrievalQA
 from langchain_community.embeddings import OpenAIEmbeddings
 from dotenv import load_dotenv
-import faiss
 import pandas as pd
 from langchain_community.vectorstores import FAISS
 import PyPDF2
