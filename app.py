@@ -44,7 +44,7 @@ def create_vector_store(file_path):
     
     splits=extract_text_from_pdf(file_path)
     __import__('pysqlite3')
-    sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
+    
     
   
     persist_directory = 'chroma.sqlite3'
