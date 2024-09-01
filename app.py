@@ -88,7 +88,7 @@ def create_vector_store(file_path):
     import sys
     sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
     
-    persist_directory = 'docs/chroma/'
+    persist_directory = 'chroma.sqlite3'
     
     embeddings = OpenAIEmbeddings(openai_api_key = OPENAI_API_KEY)
     
