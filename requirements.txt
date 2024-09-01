@@ -130,4 +130,3 @@ webencodings==0.5.1
 yarg==0.1.9
 langchain
 sentence-transformers
-langchain.vectorstores
