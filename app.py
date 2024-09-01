@@ -223,7 +223,7 @@ def handle_text_input(user_input):
 
 
     # Generate chatbot response
-    file_path = "/workspaces/Text-Voice-Chatbot/mh.pdf"  
+    file_path = "mh.pdf"  
     vector_store = create_vector_store(file_path)
     response = getResponse(user_input,vector_store)
     
@@ -238,7 +238,7 @@ def handle_text_input(user_input):
 def handle_voice_input(speech_text):
     
         # Generate chatbot response
-        file_path = "/workspaces/Text-Voice-Chatbot/mh.pdf"  
+        file_path = "mh.pdf"  
         vector_store = create_vector_store(file_path)
         response = getResponse(speech_text,vector_store)
         
