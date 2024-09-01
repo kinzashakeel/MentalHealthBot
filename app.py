@@ -14,46 +14,11 @@ load_dotenv()
 OPENAI_API_KEY= os.getenv('OPENAI_API_KEY')
 client = OpenAI(api_key=OPENAI_API_KEY)
 
-def csv_to_pdf(csv_file_path, pdf_file_path="data.pdf"):
-    # Load CSV data
-    df = pd.read_csv(csv_file_path)
-
-    # Create a PDF
-    c = canvas.Canvas(pdf_file_path, pagesize=letter)
-    width, height = letter
-
-    # Set up the PDF
-    margin = 0.75 * inch
-    table_width = width - 2 * margin
-    table_height = height - 2 * margin
-    row_height = 12
-    col_width = table_width / len(df.columns)
-
-    # Draw the table headers
-    c.setFont("Helvetica-Bold", 12)
-    y = height - margin - row_height
-    for col in df.columns:
-        c.drawString(margin, y, col)
-        margin += col_width
-    y -= row_height
-
-    # Draw the table rows
-    c.setFont("Helvetica", 10)
-    for _, row in df.iterrows():
-        margin = 0.75 * inch
-        for col in df.columns:
-            c.drawString(margin, y, str(row[col]))
-            margin += col_width
-        y -= row_height
-
-    # Save the PDF
-    c.save()
-
 
 def extract_text_from_pdf(file_path):
     
     from langchain.document_loaders import PyPDFLoader
-    #file_path=csv_to_pdf(file_path)
+   
     # Load PDF
     loaders = [
        
