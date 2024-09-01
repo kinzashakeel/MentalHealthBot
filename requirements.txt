@@ -126,4 +126,5 @@ langchain_community
 langchain
 openai
 sentence_transformers
-PyPDF
+PyPDF2
+pysqlite3
