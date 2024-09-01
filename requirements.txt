@@ -123,6 +123,7 @@ wcwidth
 webencodings
 yarg
 langchain_community
+pypdf
 langchain
 openai
 sentence_transformers
