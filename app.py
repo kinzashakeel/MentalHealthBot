@@ -18,7 +18,7 @@ import openai
 
 OPENAI_API_KEY = st.secrets["OPENAI_API_KEY"]  
 
-openai.api_key = os.getenv(OPENAI_API_KEY)
+openai.api_key = OPENAI_API_KEY
 #Model Initiation
 
 #model= genai.GenerativeModel("gemini-1.5-flash")
