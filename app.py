@@ -36,10 +36,9 @@ def getResponse(user_input):
         #OpenAI Chat Completions
     response = openai.ChatCompletion.create(
                 #model='ft:gpt-4o-mini-2024-07-18:sukkur-iba:mentalhealth:AGTajjiH', #can test it against gpt-3.5-turbo to see difference
-                model= "gpt-5",
+                model= "gpt-5-mini",
                 messages=test_messages,
-                temperature=1,
-                max_completion_tokens=500
+                temperature=1
         )
     return response["choices"][0]["message"]["content"]
 
