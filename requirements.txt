@@ -125,7 +125,7 @@ yarg
 langchain_community
 pypdf
 langchain
-openai
+openai==0.28
 sentence_transformers
 PyPDF2
 pysqlite3-binary
