@@ -67,10 +67,7 @@ def handle_text_input(user_input):
     st.session_state.text_input = ""
     response = getResponse(user_input)
 
-    # Save conversation to n8n
-    
-    if status != 200:
-        st.warning(f"⚠️ Could not send to n8n: {msg}")
+
 
     st.session_state.messages.append({"role": "user", "content": user_input})
     st.session_state.messages.append({"role": "assistant", "content": response})
