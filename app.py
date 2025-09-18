@@ -49,7 +49,7 @@ def getResponse(user_input):
         messages=test_messages,
         temperature=1
     )
-     # 🔗 send to n8n workflow
+     
     send_to_n8n(user_input, response)
     
     return response["choices"][0]["message"]["content"]
@@ -68,7 +68,7 @@ def handle_text_input(user_input):
     response = getResponse(user_input)
 
     # Save conversation to n8n
-    status, msg = send_to_n8n(user_input, response)
+    
     if status != 200:
         st.warning(f"⚠️ Could not send to n8n: {msg}")
 
