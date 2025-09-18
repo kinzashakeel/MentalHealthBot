@@ -50,7 +50,7 @@ def getResponse(user_input):
         temperature=1
     )
      
-    send_to_n8n(user_input, response)
+    
     
     return response["choices"][0]["message"]["content"]
 
@@ -71,6 +71,7 @@ def handle_text_input(user_input):
 
     st.session_state.messages.append({"role": "user", "content": user_input})
     st.session_state.messages.append({"role": "assistant", "content": response})
+    send_to_n8n(user_input, response)
 
 def handle_voice_input(speech_text):
     st.session_state.messages.append({"role": "user", "content": speech_text})
@@ -78,6 +79,7 @@ def handle_voice_input(speech_text):
 
 
     st.session_state.messages.append({"role": "assistant", "content": response})
+    send_to_n8n(user_input, response)
     speak_text(response)
 
 def main():
