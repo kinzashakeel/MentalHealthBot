@@ -76,10 +76,6 @@ def handle_voice_input(speech_text):
     st.session_state.messages.append({"role": "user", "content": speech_text})
     response = getResponse(speech_text)
 
-    # Save conversation to n8n
-    status, msg = send_to_n8n(speech_text, response)
-    if status != 200:
-        st.warning(f"⚠️ Could not send to n8n: {msg}")
 
     st.session_state.messages.append({"role": "assistant", "content": response})
     speak_text(response)
