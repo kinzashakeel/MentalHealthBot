@@ -20,20 +20,19 @@ OPENAI_API_KEY = st.secrets["OPENAI_API_KEY"]
 openai.api_key = OPENAI_API_KEY
 
 # -------------------- N8N Webhook Config --------------------
-N8N_WEBHOOK_URL = "https://your-n8n-server/webhook/ai-chat"
+import requests
 
-def send_to_n8n(user_input, ai_response):
-    """Send chat logs to n8n webhook."""
+def send_to_n8n(user_message, bot_response):
+    url = "https://kinzash.app.n8n.cloud/webhook/ai-chat"
     payload = {
-        "user_message": user_input,
-        "ai_response": ai_response,
-        "timestamp": str(datetime.datetime.now())
+        "user_message": user_message,
+        "bot_response": bot_response
     }
     try:
-        r = requests.post(N8N_WEBHOOK_URL, json=payload, timeout=10)
-        return r.status_code, r.text
+        requests.post(url, json=payload, timeout=5)
     except Exception as e:
-        return None, str(e)
+        print("Failed to send data to n8n:", e)
+
 # -----------------------------------------------------------
 
 #Model Initiation
@@ -50,6 +49,9 @@ def getResponse(user_input):
         messages=test_messages,
         temperature=1
     )
+     # 🔗 send to n8n workflow
+    send_to_n8n(user_input, response)
+    
     return response["choices"][0]["message"]["content"]
 
 def speak_text(text):
