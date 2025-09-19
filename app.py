@@ -79,8 +79,8 @@ def handle_voice_input(speech_text):
 
 
     st.session_state.messages.append({"role": "assistant", "content": response})
-    send_to_n8n(user_input, response)
     speak_text(response)
+    send_to_n8n(user_input, response)
 
 def main():
     st.title("Mental Health Chatbot")
